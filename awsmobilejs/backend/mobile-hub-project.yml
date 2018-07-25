@@ -1,0 +1,106 @@
+--- !com.amazonaws.mobilehub.v0.Project 
+features:
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
+    components:
+      ReactSample: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: ReactSample
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths:
+          /items: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/ReactSample-20180723095424.zip
+            description: 'Handler for calls to resource path : /items/{proxy+}'
+            enableCORS: true
+            environment:
+              MENU_TABLE_NAME: whitehousereact-mobilehub-1257262682-bbq_menu_item
+              ORDERS_TABLE_NAME: whitehousereact-mobilehub-1257262682-bbq_orders
+              RESTAURANTS_TABLE_NAME: whitehousereact-mobilehub-1257262682-bbq_restaurants
+            handler: lambda.handler
+            hashcode: ZDB9hhmHsopMcqLjjRL2o3sSRdZzWTmakyHH2Q5ezhU=
+            memorySize: '128'
+            modified: '2018-07-23T13:54:50.229+0000'
+            name: ReactSample
+            runtime: nodejs6.10
+            timeout: '3'
+            version: kqrt3wGl5Ut6EwM3fXl5nVPt1U2KOY9v
+          '/items/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/ReactSample-20180723095424.zip
+            description: 'Handler for calls to resource path : /items/{proxy+}'
+            enableCORS: true
+            environment:
+              MENU_TABLE_NAME: whitehousereact-mobilehub-1257262682-bbq_menu_item
+              ORDERS_TABLE_NAME: whitehousereact-mobilehub-1257262682-bbq_orders
+              RESTAURANTS_TABLE_NAME: whitehousereact-mobilehub-1257262682-bbq_restaurants
+            handler: lambda.handler
+            hashcode: ZDB9hhmHsopMcqLjjRL2o3sSRdZzWTmakyHH2Q5ezhU=
+            memorySize: '128'
+            modified: '2018-07-23T13:54:50.229+0000'
+            name: ReactSample
+            runtime: nodejs6.10
+            timeout: '3'
+            version: ydBAinqKTZy6gsIyin5ZO5czdbI.v1gi
+  content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
+    attributes:
+      enabled: true
+      visibility: public-global
+    components:
+      release: !com.amazonaws.mobilehub.v0.Bucket {}
+  database: !com.amazonaws.mobilehub.v0.Database 
+    components:
+      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
+        tables:
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              id: S
+            hashKeyName: id
+            hashKeyType: S
+            rangeKeyName: ''
+            rangeKeyType: ''
+            tableName: ___DYNAMIC_PREFIX___-bbq_restaurants
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              id: S
+            hashKeyName: id
+            hashKeyType: S
+            rangeKeyName: ''
+            rangeKeyType: ''
+            tableName: ___DYNAMIC_PREFIX___-bbq_orders
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              id: S
+              restaurant_id: S
+            hashKeyName: restaurant_id
+            hashKeyType: S
+            rangeKeyName: id
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-bbq_menu_item
+            tablePrivacy: public
+  sign-in: !com.amazonaws.mobilehub.v0.SignIn 
+    attributes:
+      enabled: true
+      optional-sign-in: false
+    components:
+      sign-in-google: !com.amazonaws.mobilehub.v0.OpenIDConnectIdentityProvider 
+        attributes:
+          open-id-connect-audience-android: ' '
+          open-id-connect-audience-ios: ' '
+          open-id-connect-audience-webapp: 974294703655-phlk1u4ph2t1sek1hcnddcfpl4q7ocsq.apps.googleusercontent.com
+          open-id-provider-url: 'https://accounts.google.com'
+      sign-in-user-pools: !com.amazonaws.mobilehub.v0.UserPoolsIdentityProvider 
+        attributes:
+          alias-attributes:
+            - email
+            - phone_number
+          mfa-configuration: ON
+          name: userpool
+          password-policy: !com.amazonaws.mobilehub.ConvertibleMap 
+            min-length: '8'
+            require-lower-case: true
+            require-numbers: true
+            require-symbols: true
+            require-upper-case: true
+name: whitehousereact
+region: us-east-2

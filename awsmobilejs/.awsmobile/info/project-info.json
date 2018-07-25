@@ -1,0 +1,19 @@
+{
+	"ProjectName": "my-project",
+	"ProjectPath": "/Users/jhorton/projects/my-project",
+	"InitializationTime": "2018-07-23-08-45-15",
+	"LastConfigurationTime": "",
+	"LastNPMInstallTime": "",
+	"FrontendLastBuildTime": "2018-07-23-09-56-23",
+	"LastPublishTime": "2018-07-23-09-56-32",
+	"BackendLastSyncTime": "2018-07-23-09-55-48",
+	"BackendLastSyncToDevTime": "2018-07-23-09-55-50",
+	"BackendLastBuildTime": "2018-07-23-09-54-30",
+	"BackendLastPushTime": "2018-07-23-09-55-33",
+	"BackendProjectID": "fa467e15-c32e-446e-a20a-4dc030cfe73e",
+	"BackendProjectName": "whitehousereact",
+	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/fa467e15-c32e-446e-a20a-4dc030cfe73e/build",
+	"BackendProjectCreationTime": "2018-07-23T12:45:36.244Z",
+	"BackendProjectLastUpdatedTime": "2018-07-23T13:54:36.816Z",
+	"Framework": "react"
+}
