@@ -25,20 +25,51 @@ export default class Main extends Component {
 
     getUser = async() => {
         console.log('name: ' + gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig)
-        console.log('Fetching Candidates......')
+        console.log('Fetching Candidates......');
 
-        // get request to api
-        $.ajax({
-            url: "https://l7mgnxwxd8.execute-api.us-east-1.amazonaws.com/api/candidates/page1",
-            type: "GET",
-            dataType: 'json',
-            beforeSend: function(xhr){ 
-                xhr.setRequestHeader('Authorization', 'Basic OTEyOGExNTkyOWM1YjI4Y2Q1ZDc0MzA4M2Y1Y2U5YTAtMQ==')
-            ;},
-            success: function (result) { 
-                console.log(result);
-            }
-         });
+        let mergedObject = {};
+
+        // Combine Candidates
+        for (let i = 0; i < 5; i++){
+            let url = 'https://8r0uow7hqg.execute-api.us-east-1.amazonaws.com/api/candidates/page';
+            url = url + (i + 1);
+            console.log(i,url)
+
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: 'json',
+                beforeSend: function(xhr){ 
+                    xhr.setRequestHeader('Authorization', 'Basic OTEyOGExNTkyOWM1YjI4Y2Q1ZDc0MzA4M2Y1Y2U5YTAtMQ==')
+                ;}, 
+                success: function (result) { 
+                    console.log(result);
+
+                    
+                }
+            });           
+        }
+
+        // // get request to api
+        // $.ajax({
+        //     // Works
+        //     // url: "https://lqco1mb5x0.execute-api.us-east-1.amazonaws.com/api",
+        //     // url: "https://8r0uow7hqg.execute-api.us-east-1.amazonaws.com/api/candidates/page1",
+        //     // url: "https://8r0uow7hqg.execute-api.us-east-1.amazonaws.com/api/candidates/page2",
+        //     // url: "https://8r0uow7hqg.execute-api.us-east-1.amazonaws.com/api/candidates/page3",
+        //     // url: "https://8r0uow7hqg.execute-api.us-east-1.amazonaws.com/api/candidates/page4",
+        //     url: "https://8r0uow7hqg.execute-api.us-east-1.amazonaws.com/api/candidates/page5",
+        //     // url: 'https://8r0uow7hqg.execute-api.us-east-1.amazonaws.com/api/eeoc',
+        //     type: "GET",
+        //     dataType: 'json',
+        //     // Get Request Only Works
+        //     beforeSend: function(xhr){ 
+        //         xhr.setRequestHeader('Authorization', 'Basic OTEyOGExNTkyOWM1YjI4Y2Q1ZDc0MzA4M2Y1Y2U5YTAtMQ==')
+        //     ;}, 
+        //     success: function (result) { 
+        //         console.log(result);
+        //     }
+        //  });
 
         return gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig;
     } 
